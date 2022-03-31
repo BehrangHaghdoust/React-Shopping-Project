@@ -1,19 +1,20 @@
-
 const Home = () => {
-
     return (
         <div className="container mt-5">
             <div className="row text-center">
                 <div className="col-md-12">
-                    <h2>Shopping Projcet</h2>
+                    <h2>Shopping Cart - ReactProject</h2>
                     <p className="mt-4">
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi minima magnam, ducimus delectus assumenda corporis molestias doloremque,
-                        asperiores aspernatur, odit eligendi molestiae expedita! Voluptate reprehenderit unde odio ratione accusamus voluptas consectetur vel aliquam beatae.
-                         Eaque impedit, accusantium aliquam, doloremque exercitationem nemo neque eius, cupiditate fugit harum nihil voluptate ad necessitatibus.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem
+                        totam, ratione, voluptas eveniet soluta incidunt itaque optio beatae
+                        id temporibus, ex exercitationem sint ad earum in sed? Quam, cum sunt.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem
+                        totam, ratione, voluptas eveniet soluta incidunt itaque optio beatae
+                        id temporibus, ex exercitationem sint ad earum in sed? Quam, cum sunt.
                     </p>
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 
