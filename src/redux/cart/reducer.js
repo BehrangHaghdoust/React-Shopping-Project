@@ -7,9 +7,17 @@ const initialState = {
 const cartReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_TO_CART:
+            const hasProduct= state.cart.find(p => p.id === action.payload.id) ? true : false ;
+
+
+            // false       [...state.cart,{...action.payload , pty:1 }]
+            // true ----->  state.cart.map(p=> p.id ===action.payload.id ? {...p ,qty:p.qty + 1} : p )
+
+
+            state.cart = hasProduct ? state.cart.map(p=> p.id ===action.payload.id ? {...p ,qty:p.pty + 1} : p ) : [...state.cart,{...action.payload , pty:1 }]
             return {
                 ...state,
-                cart: [...state.cart,{...action.payload , qyt:1 }]
+                cart:   state.cart
             }
             default:
                 return state
