@@ -1,4 +1,4 @@
-import { ADD_TO_CART, INCREMENT ,DECREMENT } from "./actionType"
+import { ADD_TO_CART, INCREMENT ,DECREMENT, REMOVE_FROM_CART,CLEAR_CART} from "./actionType"
 
 const initialState = {
     cart: []
@@ -24,16 +24,23 @@ const cartReducer = (state = initialState, action) => {
             }
             case DECREMENT:
             const product = state.cart.find(p => p.id === action.payload) ;
-            // if(product.qty >1){
-            //     state.cart =  state.cart.map(p => p.id === action.payload ? { ...p, qty: p.qty - 1 } : p)
-            // }else{
-            //     state.cart =  state.cart
-            // }
             state.cart = product.qty >1 ? state.cart.map(p => p.id === action.payload ? { ...p, qty: p.qty - 1 } : p) : state.cart
             return {
                 ...state,
                 cart: state.cart
             }
+            case REMOVE_FROM_CART:
+                state.cart = state.cart.filter(p => p.id !== action.payload) ;
+            return {
+                ...state,
+                cart: state.cart
+            }
+            case CLEAR_CART:
+            return {
+                ...state,
+                cart: []
+            }
+
         default:
             return state
     }
