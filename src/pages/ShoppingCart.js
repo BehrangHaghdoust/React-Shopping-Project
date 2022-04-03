@@ -1,8 +1,22 @@
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
+import Swal from "sweetalert2";
+import { increment } from "../redux/cart/action";
 
 const ShoppingCart = ()=>{
-    const { cart } = useSelector((state => state.shopingCart))
-
+    const { cart } = useSelector((state => state.shopingCart));
+    const dispatch= useDispatch()
+    const handleIncrement = (productId)=> {
+        dispatch(increment(productId))
+        Swal.fire({
+            title: 'Cart Updated',
+            icon:'success',
+            showConfirmButton:false,
+            timerProgressBar:true ,
+            timer : 3000 ,
+            toast: true ,
+            position :'top'
+        })
+    }
     return (
         <div className="container">
         <div className="row mt-5">
@@ -19,7 +33,7 @@ const ShoppingCart = ()=>{
                     </thead>
                     <tbody>
                         {cart && cart.map(product => (
-                            <tr>
+                            <tr key={product.id}>
                                 <td className="align-middle">
                                     <div className="row">
                                         <div className="col-lg-2">
@@ -37,7 +51,7 @@ const ShoppingCart = ()=>{
                                 </td>
                                 <td className="align-middle">{product.price}</td>
                                 <td className="align-middle">
-                                    <button className="btn btn-sm btn-dark me-2">
+                                    <button onClick={()=> handleIncrement(product.id)} className="btn btn-sm btn-dark me-2" >
                                         +
                                     </button>
                                     <span>{product.qty}</span>
@@ -57,7 +71,7 @@ const ShoppingCart = ()=>{
                             <td>
                                 <a href="/" className="btn btn-dark">Clear Cart</a>
                             </td>
-                            <td colspan="2" className="hidden-xs"></td>
+                            <td colSpan="2" className="hidden-xs"></td>
                             <td className="hidden-xs text-center" style={{ width: '15%' }}>
                                 <strong>Total : { cart.reduce((total, product) => {
                                     return total + product.price * product.qty
