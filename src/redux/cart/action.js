@@ -1,4 +1,4 @@
-import { ADD_TO_CART ,INCREMENT } from "./actionType";
+import { ADD_TO_CART ,INCREMENT ,DECREMENT} from "./actionType";
 
 export const addToCard = (product)=> {
     return {
@@ -10,6 +10,13 @@ export const addToCard = (product)=> {
 export const increment = (productId)=> {
     return {
         type:INCREMENT,
+        payload:productId
+
+    }
+}
+export const decrement = (productId)=> {
+    return {
+        type:DECREMENT,
         payload:productId
 
     }
