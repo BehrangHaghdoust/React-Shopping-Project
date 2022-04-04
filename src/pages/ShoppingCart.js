@@ -60,12 +60,12 @@ const ShoppingCart = () => {
         <>
 
         {cart.length === 0 ? (
-                <div class="col-md-12 text-center">
+                <div className="col-md-12 text-center">
                     <div>
-                        <i class="bi bi-basket-fill" style={{ fontSize: '100px' }}></i>
+                        <i className="bi bi-basket-fill" style={{ fontSize: '100px' }}></i>
                     </div>
-                    <h3 class="text-bold">Cart is empty</h3>
-                    <Link class="btn btn-outline-dark mt-3 btn" to="/products">Products</Link>
+                    <h3 className="text-bold">Cart is empty</h3>
+                    <Link className="btn btn-outline-dark mt-3 btn" to="/products">Products</Link>
                 </div >
             )
             :
